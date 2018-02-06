@@ -33,6 +33,8 @@ create_related_queries_payload <- function(i, widget) {
 
   res <- curl::curl_fetch_memory(URLencode(url))
   
+  print(res)
+  print(res$status_code)
   stopifnot(res$status_code == 200)
   
   res <- readLines(textConnection(rawToChar(res$content)))
